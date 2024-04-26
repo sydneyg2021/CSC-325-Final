@@ -3,28 +3,21 @@
 {
 	"name": "Flutter Web",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"dockerFile": "dockerfile",
+	"image": "dockerfile",
 
-	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
-		"ghcr.io/jarrodcolburn/features/flutter-sdk:0" : {}
-	},
+		"ghcr.io/jarrodcolburn/features/flutter-sdk:0": {},
+		"ghcr.io/devcontainers-community/templates/dart:1": {}
+	}
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "git config --global --add safe.directory /sdk/flutter && flutter config --no-analytics",
+	// "postCreateCommand": "uname -a",
 
 	// Configure tool-specific properties.
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"dart-code.dart-code",
-				"dart-code.flutter"
-			]
-		}
-	}
+	// "customizations": {},
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
