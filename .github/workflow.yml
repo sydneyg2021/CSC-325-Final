@@ -1,1 +1,43 @@
-yaml
+name: Flutter Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Copy Repository 
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      - name: Install Flutter App Dependencies
+        working-directory: ./app
+        run: flutter pub get
+
+      - name: Check Flutter Application Dependencies
+        working-directory: ./app
+        run: flutter pub outdated
+
+      - name: Provide Instructions if Dependencies Not Installed
+        working-directory: ./app
+        run: |
+          if [ $? -ne 0 ]; then
+            echo "Some dependencies are not installed. Please run 'flutter pub get' to install them."
+          else
+            echo "All dependencies are installed."
+          fi
+
+      - name: Build flutter web
+        working-directory: ./app
+        run: flutter build web
+      
+      - name: Run tests
+        working-directory: ./app
+        run: flutter test
