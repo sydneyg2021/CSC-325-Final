@@ -1,17 +1,24 @@
 # Introduction: 
-## Overview of CI/CD pipelines and their significance in modern software development
-Continuous Integration and Continuous Deployment (CI/CD) is a set of practices, frameworks, and tools to automate and streamline the software delivery process. This process is represented in the CI/CD pipeline, where code changes are recorded as they are automatically built, tested, and deployed to various environments. This document outlines the CI/CD pipeline for this Flutter Application project.
+** Overview of CI/CD pipelines and their significance in modern software development **
+Continuous Integration and Continuous Deployment (CI/CD) is a set of practices, frameworks, and tools to automate and streamline the software delivery process. This process is represented in the CI/CD pipeline, where code changes are recorded as they are automatically built, tested, and deployed to various environments. CI/CD pipelines offer numerous benefits to modern software development practices, including:
+- Improved Quality: By automating tests and deployments, CI/CD pipelines help ensure the consistency and reliability of software releases, leading to higher-quality products.
+- Increased Efficiency: Automation reduces manual effort and accelerates the software development lifecycle, allowing teams to deliver features to customers faster.
+- Faster Time-to-Market: CI/CD enables rapid iteration and deployment, allowing organizations to respond quickly to market demands and stay ahead of competitors.
+- Enhanced Collaboration: CI/CD encourages collaboration among development, testing, and operations teams, fostering a culture of shared responsibility and continuous improvement.
+
+This document outlines a CI/CD pipeline for flutter applications.
 
 
 # DevContainer Environment:
-## Details of the Docker container configuration used for Flutter development
+** Details of the Docker container configuration used for Flutter development **
 A DevContainer is a pre-configured development environment packaged within a Docker container. It bundles all the necessary tools, libraries, and dependencies a project needs to run smoothly.  A DevContainer is especially beneficial for Flutter development due to its consistency, reduced setup time, isolation, and portability. DevContainers offers a streamlined and consistent development experience for Flutter projects, saving time on setup, minimizing compatibility issues, and ensuring everyone works with the same tools and libraries. 
 
 ## Configuration steps 
 To configure my DevContainer, I:
 
 1. Created a Dockerfile Image with a pre-configured base image specifically designed for development containers by Microsoft. It provides a base Ubuntu environment with some basic tools pre-installed.
-2. I also installed additional tools to the image:
+
+3. I also installed additional tools to the image:
       - wget: Used for downloading files from the internet.
       - xz-utils: Provides tools for working with xz-compressed files.
       - git: Used for version control with Git repositories.
@@ -19,33 +26,13 @@ To configure my DevContainer, I:
       - file: Used to determine the type of a file.
       - unzip: Used for extracting ZIP archives.
 
-3. To make sure the Flutter was available for my DevContainer, I cloned the Flutter SDK and also changed the DevContainer path to include the SDK so Flutter applications could be run directly from the container.
+4. To make sure the Flutter was available for my DevContainer, I cloned the Flutter SDK and also changed the DevContainer path to include the SDK so Flutter applications could be run directly from the container.
 
 ## Integration with VS Code
 In my DevContainer, I also installed specific Dart and Flutter extensions for Visual Studio Code (VS Code) to provide the necessary tools for working on my Flutter project.
 
-## Usage
-**Using a DevContainer for Flutter Development Workflow**
-### Prerequisites
-Make sure [Docker](https://www.docker.com/get-started/) is installed on your system before continuing.
-
-### Getting Started
-
-1. Clone the repository to your local machine:
-   ```bash
-   git clone https://github.com/sydneyg2021/Flutter-Web.git
-   cd Flutter-Web
-2. Build the Docker image:
-    ```bash
-    docker build -t Flutter-Web:latest
-3. Run the container:
-    ```bash
-    docker run -it --rm -v $(pwd):/app Flutter-Web:latest
-
-This command mounts your project directory into the container and starts an interactive session. You can also edit the code to your specifications if needed on your local copy.
-
 # Source Code Version Control Tools: 
-## Description of the version control system utilized (e.g., Git), focusing on how the source code is managed and integrated with the CI/CD pipeline
+** Description of the version control system utilized (e.g., Git), focusing on how the source code is managed and integrated with the CI/CD pipeline **
 Version control is essential for maintaining the project's integrity by tracking changes made to code and ensuring that changes are transparent and reversible if necessary. They keep an extensive history of changes, allowing developers to understand how the source code has evolved. This record of changes facilitates troubleshooting, rollback to previous working versions, and analysis of past code. Moreover, version control maintains collaboration by providing a centralized platform for sharing and managing code. 
 
 ## Version Control System Used
